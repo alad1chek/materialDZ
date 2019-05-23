@@ -162,4 +162,30 @@ class Material
     {
         $this->categoryId = $categoryId;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getCategoryName(): ?string
+    {
+        if (!$this->getCategory()) {
+            return '';
+        }
+
+        return $this->getCategory()->getName();
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCategoryId(): ?int
+    {
+        if (!$this->getCategory()) {
+            return null;
+        }
+
+        return $this->getCategory()->getId();
+    }
+
+
 }

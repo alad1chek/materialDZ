@@ -25,6 +25,7 @@ class MaterialController extends AbstractController
         MaterialService $service
     )
     {
+
         return $this->json($transformer->transformMany($service->getAllMaterials()));
     }
 

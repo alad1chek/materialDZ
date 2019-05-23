@@ -15,8 +15,8 @@ class MaterialTransformer
             'name'       => $material->getName(),
             'count'      => $material->getCount(),
             'createAt'   => $material->getCreateAt()->getTimestamp(),
-            'category'   => $material->getCategory()->getName(),
-            'categoryId' => $material->getCategory()->getId(),
+            'category'   => $material->getCategoryName(),
+            'categoryId' => $material->getCategoryid(),
             'price'      => $material->getPrice()
         ];
     }
