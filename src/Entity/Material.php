@@ -39,6 +39,11 @@ class Material
     private $category;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $categoryId;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createAt;
@@ -51,6 +56,7 @@ class Material
     public function __construct()
     {
         $this->logRecords = new ArrayCollection();
+        $this->createAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -147,5 +153,13 @@ class Material
         }
 
         return $this;
+    }
+
+    /**
+     * @param mixed $categoryId
+     */
+    public function setCategoryId($categoryId): void
+    {
+        $this->categoryId = $categoryId;
     }
 }
