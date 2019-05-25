@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link
+            href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="//fonts.googleapis.com/css?family=Roboto:400,700,300"
+            rel="stylesheet"
+            type="text/css"
+    />
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>
