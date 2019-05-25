@@ -19,32 +19,13 @@ class LogRecordRepository extends ServiceEntityRepository
         parent::__construct($registry, LogRecord::class);
     }
 
-    // /**
-    //  * @return LogRecord[] Returns an array of LogRecord objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function persist(LogRecord $logRecord)
     {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('l.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->getEntityManager()->persist($logRecord);
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?LogRecord
+    public function flush()
     {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $this->getEntityManager()->flush();
     }
-    */
 }
