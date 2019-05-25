@@ -187,5 +187,11 @@ class Material
         return $this->getCategory()->getId();
     }
 
-
+    /**
+     * @param int $minus
+     */
+    public function minusCount(int $minus): void
+    {
+        $this->count -= $minus;
+    }
 }
