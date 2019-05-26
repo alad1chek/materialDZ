@@ -9,11 +9,11 @@ class SpendingService {
 
 
     getSpending = async (material) => {
-        return await axios.get(`${config.base_endpoint}/${material}/spending`);
+        return await axios.get(`${config.base_endpoint}/material/${material}${this.SPEND}`);
     };
 
     spend = async (spending) => {
-        return await axios.post(`${config.base_endpoint}/${this.SPEND}`, spending);
+        return await axios.post(`${config.base_endpoint}${this.SPEND}`, spending);
     };
 
 }

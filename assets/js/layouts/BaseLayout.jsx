@@ -55,11 +55,9 @@ class BaseLayout extends Component {
           color={this.state.color}
         />
         <div id="main-panel" className="main-panel" ref="mainPanel">
-          <Header
-            {...this.props}
-          />
+
           <Switch>{this.getRoutes(routes)}</Switch>
-          <Footer />
+
 
         </div>
       </div>

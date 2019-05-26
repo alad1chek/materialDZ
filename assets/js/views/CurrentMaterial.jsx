@@ -3,15 +3,31 @@ import {
     Grid,
     Row,
     Col,
-    Button
+    Button,
+    Table
 } from "react-bootstrap";
 
 import Card from "../components/Card/Card.jsx";
 import FormInput from "../components/Form/FormInput.jsx";
+import {spending_data} from "../models/Materials";
 
 
 const CurrentMaterial = (props) => {
     const material = props.material;
+    const spending = props.spending;
+    const table_head = spending_data.map((item, key) => (
+        <th key={key}>{item}</th>
+    ));
+    const table_body = spending ? Object.values(spending).map((item,key) => {
+        return (
+            <tr key={key}>
+                <td key={item.id}>{item.id}</td>
+                <td key={item.count}>{item.count}</td>
+                <td key={item.reason}>{item.reason}</td>
+                <td key={item.createAt}>{new Date(item.createAt * 1000).toLocaleString()}</td>
+            </tr>
+        )
+    }) : <tr><td>Nothing yet</td></tr>
         return (
             <div className="content">
                 <Grid fluid>
@@ -75,6 +91,28 @@ const CurrentMaterial = (props) => {
                             />
                         </Col>
 
+                    </Row>
+                    <Row>
+                        <Col md={12}>
+                            <Card
+                                title="Spending Log"
+                                category="Usage of materials"
+                                ctTableFullWidth
+                                ctTableResponsive
+                                content={
+                                    <Table striped hover>
+                                        <thead>
+                                        <tr>
+                                            {table_head}
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {table_body}
+                                        </tbody>
+                                    </Table>
+                                }
+                            />
+                        </Col>
                     </Row>
                 </Grid>
             </div>
