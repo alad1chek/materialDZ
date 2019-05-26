@@ -36,7 +36,7 @@ class SpendingController extends AbstractController
 
     /**
      * @Route(
-     *     "/material/{material}/spenging",
+     *     "/material/{material}/spending",
      *     name="spending_list",
      *     methods={"GET"}
      * )

@@ -19,11 +19,7 @@ class Dashboard extends Component {
                 statsIconText="Updated now"
               />
             </Col>
-
           </Row>
-
-
-
         </Grid>
       </div>
     );
