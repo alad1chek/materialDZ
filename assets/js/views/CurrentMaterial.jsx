@@ -9,8 +9,9 @@ import {
 import Card from "../components/Card/Card.jsx";
 import FormInput from "../components/Form/FormInput.jsx";
 
-class CurrentMaterial extends React.Component {
-    render() {
+
+const CurrentMaterial = (props) => {
+    const material = props.material;
         return (
             <div className="content">
                 <Grid fluid>
@@ -19,48 +20,49 @@ class CurrentMaterial extends React.Component {
                             <Card
                                 title="Edit Material"
                                 content={
+                                    material &&
                                     <form>
                                         <FormInput
-                                            ncols={["col-md-5", "col-md-4"]}
+                                            ncols={["col-md-6", "col-md-6"]}
                                             properties={[
                                                 {
                                                     label: "Name",
                                                     type: "text",
                                                     bsClass: "form-control",
                                                     placeholder: "Company",
-                                                    defaultValue: "Some material name",
+                                                    defaultValue: material.name
                                                 },
                                                 {
                                                     label: "Category",
                                                     type: "text",
                                                     bsClass: "form-control",
                                                     placeholder: "There would be a category",
-                                                    defaultValue: "pizda"
+                                                    defaultValue: material.category
                                                 },
                                             ]}
                                         />
                                         <FormInput
-                                            ncols={["col-md-5", "col-md-4"]}
+                                            ncols={["col-md-6", "col-md-6"]}
                                             properties={[
                                                 {
                                                     label: "Count",
                                                     type: "text",
                                                     bsClass: "form-control",
                                                     placeholder: "There would be count",
-                                                    defaultValue: "10"
+                                                    defaultValue: material.count,
                                                 },
                                                 {
                                                     label: "Price for an item",
                                                     type: "text",
                                                     bsClass: "form-control",
                                                     placeholder: "There would be price",
-                                                    defaultValue: "10$"
+                                                    defaultValue: material.price
                                                 }
                                             ]}
                                         />
 
                                         <Col md={12}>
-                                            <Button type="submit" style={{float: "right"}}>
+                                            <Button type="submit" style={{float: "right"}} onClick={props.handleUpdate}>
                                                 Update material
                                             </Button>
                                         </Col>
@@ -74,7 +76,6 @@ class CurrentMaterial extends React.Component {
                 </Grid>
             </div>
         );
-    }
-}
+    };
 
 export default CurrentMaterial;

@@ -6,6 +6,7 @@ class MaterialsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentMaterial: null,
       materials: [],
     };
     this.material_service = new MaterialService();
@@ -18,7 +19,7 @@ class MaterialsContainer extends React.Component {
   handleGet = material => {
     this.material_service
       .getMaterial(material)
-      .then(res => this.setState(state => ({ materials: res.data })));
+      .then(res => this.setState(state => ({ material: res.data })));
   };
 
   handleGetList = () => {
@@ -41,7 +42,7 @@ class MaterialsContainer extends React.Component {
     this.material_service.updateMaterial(material).then(res => {
       this.setState(state => {
         const materials = state.materials.map(item => {
-          if (item.id === material.id) {
+          if (item.id === material) {
             return material;
           } else {
             return item;
@@ -57,8 +58,7 @@ class MaterialsContainer extends React.Component {
   handleDelete = material => {
     this.material_service.deleteMaterial(material).then(res =>
       this.setState(state => {
-        const materials = state.filter(item => item.id !== material.id);
-
+        const materials = state.materials.filter(item => item.id !== material);
         return {
           materials,
         };

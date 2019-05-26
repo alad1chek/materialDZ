@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0";
@@ -13,6 +13,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/" render={props => <AdminLayout {...props} />} />
+      <Redirect from="/" to="/base/dashboard"/>
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

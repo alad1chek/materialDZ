@@ -19,14 +19,13 @@ class BaseLayout extends Component {
 
   getRoutes = routes => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/") {
+      if (prop.layout === "/base") {
         return (
           <Route
             path={prop.layout + prop.path}
             render={props => (
               <prop.component
                 {...props}
-                handleClick={this.handleNotificationClick}
               />
             )}
             key={key}
@@ -45,11 +44,6 @@ class BaseLayout extends Component {
       document.documentElement.className.indexOf("nav-open") !== -1
     ) {
       document.documentElement.classList.toggle("nav-open");
-    }
-    if (e.history.action === "PUSH") {
-      document.documentElement.scrollTop = 0;
-      document.scrollingElement.scrollTop = 0;
-      this.refs.mainPanel.scrollTop = 0;
     }
   }
   render() {
