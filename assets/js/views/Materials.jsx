@@ -1,9 +1,10 @@
 import React from 'react';
 import { Grid, Row, Col, Table } from 'react-bootstrap';
 import Card from '../components/Card/Card.jsx';
-import { materials_data } from '../models/Materials';
 import ControlButton from '../components/ControlButtons/ControlButton';
-import {NavLink} from "react-router-dom";
+
+import { materials_data } from '../models/Materials';
+
 
 const Materials = props => {
   const materials = props.materials;
@@ -21,7 +22,7 @@ const Materials = props => {
             {new Date(item.createAt * 1000).toDateString()}
           </td>
           <td key={Math.random()}>{item.category}</td>
-          <td key={Math.random()}>{item.category_id}</td>
+          <td key={Math.random()}>{item.categoryId}</td>
           <td key={Math.random()}>{item.price}</td>
           <td>
             <ControlButton

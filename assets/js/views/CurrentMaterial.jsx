@@ -30,7 +30,8 @@ const CurrentMaterial = (props) => {
                                                     type: "text",
                                                     bsClass: "form-control",
                                                     placeholder: "Company",
-                                                    defaultValue: material.name
+                                                    defaultValue: material.name,
+                                                    onChange: props.handleNameChange
                                                 },
                                                 {
                                                     label: "Category",
@@ -50,13 +51,15 @@ const CurrentMaterial = (props) => {
                                                     bsClass: "form-control",
                                                     placeholder: "There would be count",
                                                     defaultValue: material.count,
+                                                    onChange: props.handleCountChange
                                                 },
                                                 {
                                                     label: "Price for an item",
                                                     type: "text",
                                                     bsClass: "form-control",
                                                     placeholder: "There would be price",
-                                                    defaultValue: material.price
+                                                    defaultValue: material.price,
+                                                    onChange: props.handlePriceChange
                                                 }
                                             ]}
                                         />

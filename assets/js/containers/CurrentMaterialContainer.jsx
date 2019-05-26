@@ -12,7 +12,6 @@ class CurrentMaterialContainer extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         const {match: {params}} = this.props;
         this.handleGet(params.id);
     }
@@ -22,26 +21,40 @@ class CurrentMaterialContainer extends React.Component {
             .getMaterial(material)
             .then(res => this.setState(state => ({ material: res.data })));
     };
-    handleUpdate = e => {
-        e.preventDefault();
+
+    handleNameChange = e => {
+        this.setState({
+            material: {...this.state.material, name: e.target.value}
+        });
+    };
+
+    handleCountChange = e => {
+        this.setState({
+            material: {...this.state.material, count: e.target.value}
+        });
+    };
+
+    handlePriceChange = e => {
+        this.setState({
+            material: {...this.state.material, price: e.target.value}
+        });
     };
 
 
-    /* handleUpdate = material => {
-         this.material_service.updateMaterial(material).then(res => {
-             this.setState(state => {
-                return {
-                    material
-                }
-             });
-         });
+     handleUpdate = e => {
+         e.preventDefault();
+         this.material_service.updateMaterial(this.state.material)
      };
- */
+
+
     render() {
         return (
             <CurrentMaterial
                 material={this.state.material}
                 handleUpdate={this.handleUpdate}
+                handleNameChange={this.handleNameChange}
+                handlePriceChange={this.handlePriceChange}
+                handleCountChange={this.handleCountChange}
             />
         );
     }
