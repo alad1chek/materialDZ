@@ -78,6 +78,15 @@ const Materials = props => {
             />
           </Col>
         </Row>
+          <Row>
+
+              <Col md={12}>
+                  <Button type="submit" style={{float: "right"}} onClick={props.handleUpdate}>
+                      Create material
+                  </Button>
+              </Col>
+              <div className="clearfix" />
+          </Row>
         <Row>
           <Col md={12}>
             <Modal show={props.showModal} onHide={props.handleClose}>
@@ -128,6 +137,73 @@ const Materials = props => {
             </Modal>
           </Col>
         </Row>
+          <Row>
+              <Col md={12}>
+                  <Modal show={false} onHide={props.handleClose}>
+                      <Modal.Header closeButton>
+                          <Modal.Title>Create material</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                          <Grid fluid>
+                              <Row>
+                                  <Col md={12}>
+                                      <Card
+                                          title=""
+                                          content={
+                                              <form>
+                                                  <FormInput
+                                                      ncols={["col-md-6", "col-md-6"]}
+                                                      properties={[
+                                                          {
+                                                              label: "Material name",
+                                                              type: "text",
+                                                              bsClass: "form-control",
+                                                              placeholder: "enter material's name",
+                                                              onChange: props.handleNameChange
+                                                          },
+                                                          {
+                                                              label: "Category",
+                                                              type: "text",
+                                                              bsClass: "form-control",
+                                                              placeholder: "Pick a category",
+                                                          },
+                                                      ]}
+                                                  />
+                                                  <FormInput
+                                                      ncols={["col-md-6", "col-md-6"]}
+                                                      properties={[
+                                                          {
+                                                              label: "Count",
+                                                              type: "text",
+                                                              bsClass: "form-control",
+                                                              placeholder: "Enter the count",
+                                                          },
+                                                          {
+                                                              label: "Price",
+                                                              type: "text",
+                                                              bsClass: "form-control",
+                                                              placeholder: "Enter price for an item",
+                                                          }
+                                                      ]}
+                                                  />
+
+
+                                                  <div className="clearfix" />
+                                              </form>
+                                          }
+                                      />
+                                  </Col>
+
+                              </Row>
+                          </Grid>
+                      </Modal.Body>
+                      <Modal.Footer>
+                          <Button onClick={props.handleSpend}>Create</Button>
+                          <Button onClick={props.handleClose}>Close</Button>
+                      </Modal.Footer>
+                  </Modal>
+              </Col>
+          </Row>
       </Grid>
     </div>
   );
